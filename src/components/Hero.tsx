@@ -57,7 +57,7 @@ export default function Hero() {
               Get Help Today
             </Link>
             <Link
-              href="tel:+1234567890"
+              href="tel:+18445246612"
               className="border-2 border-white text-white hover:bg-white hover:text-[#1F2937] px-10 py-4 rounded-full transition-colors text-xl font-semibold"
             >
               Call Us Now

@@ -165,17 +165,44 @@ export default function QuizPage() {
     });
   };
 
-  const handleFileUpload = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
+  const compressImage = (file: File, maxWidth: number = 800, quality: number = 0.6): Promise<string> => {
+    return new Promise((resolve) => {
       const reader = new FileReader();
       reader.onload = (e) => {
-        setAnswers((prev) => ({
-          ...prev,
-          [key]: e.target?.result as string,
-        }));
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+
+          if (width > maxWidth) {
+            height = (height * maxWidth) / width;
+            width = maxWidth;
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+
+          const ctx = canvas.getContext('2d');
+          ctx?.drawImage(img, 0, 0, width, height);
+
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+          resolve(compressedDataUrl);
+        };
+        img.src = e.target?.result as string;
       };
       reader.readAsDataURL(file);
+    });
+  };
+
+  const handleFileUpload = async (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const compressedImage = await compressImage(file);
+      setAnswers((prev) => ({
+        ...prev,
+        [key]: compressedImage,
+      }));
     }
   };
 
@@ -452,7 +479,7 @@ export default function QuizPage() {
                 <p className="text-xl md:text-2xl text-[#374151] mb-12 leading-relaxed">{step.subheadline}</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
-                    href="tel:+1234567890"
+                    href="tel:+18445246612"
                     className="px-10 py-4 bg-[#5F7A8C] text-white text-lg font-semibold rounded-full hover:bg-[#516A7A] transition transform hover:scale-105"
                   >
                     Call Now

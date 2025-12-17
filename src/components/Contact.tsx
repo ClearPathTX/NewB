@@ -28,7 +28,7 @@ export default function Contact() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link
-              href="tel:+1234567890"
+              href="tel:+18445246612"
               className="bg-[#5F7A8C] hover:bg-[#516A7A] text-white px-10 py-4 rounded-full transition-colors text-xl font-semibold inline-flex items-center justify-center gap-2"
             >
               <svg

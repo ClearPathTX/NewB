@@ -44,7 +44,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="tel:+1234567890"
+              href="tel:+18445246612"
               className="bg-[#5F7A8C] hover:bg-[#516A7A] text-white px-6 py-3 rounded-full transition-colors text-lg font-semibold"
             >
               Call Now
@@ -103,7 +103,7 @@ export default function Header() {
                   </Link>
                 ))}
                 <Link
-                  href="tel:+1234567890"
+                  href="tel:+18445246612"
                   className="bg-[#5F7A8C] hover:bg-[#516A7A] text-white px-6 py-3 rounded-full transition-colors text-lg font-semibold text-center mt-2"
                 >
                   Call Now

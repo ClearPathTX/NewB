@@ -36,7 +36,7 @@ export default function About() {
               personalized, compassionate care can make.
             </p>
             <Link
-              href="tel:+1234567890"
+              href="tel:+18445246612"
               className="inline-flex items-center gap-2 border-2 border-[#5F7A8C] text-[#5F7A8C] hover:bg-[#5F7A8C] hover:text-white px-8 py-4 rounded-full transition-colors text-xl font-semibold"
             >
               <svg
